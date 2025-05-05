@@ -13,5 +13,8 @@ int main(int argc, char const *argv[]) {
             printf("%d + %d = %d\n", a, b, a + b);
             return 0;
         }
-    }
-}
+
+        if (strcmp(argv[2], "sub") == 0) {
+            printf("%d - %d = %d\n", a, b, a - b);
+            return 0;
+        }
