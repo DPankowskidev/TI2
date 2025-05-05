@@ -18,3 +18,19 @@ int main(int argc, char const *argv[]) {
             printf("%d - %d = %d\n", a, b, a - b);
             return 0;
         }
+        if(strcmp(argv[2], "mul") == 0){
+            printf("%d * %d = %d\n", a, b, a * b);
+            return 0;
+        }
+        if(strcmp(argv[2], "dev") == 0){
+            if(b == 0){
+                printf("dzielenie przez 0");
+                return 1;
+            }
+            else {
+                printf("%d * %d = %d\n", a, b, a / b);
+                return 0;
+            }
+        }
+    }
+}
