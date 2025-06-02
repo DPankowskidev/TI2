@@ -1,11 +1,8 @@
-//
-// Created by Student on 02.06.2025.
-//
+#ifndef INC_2_POINT_H
+#define INC_2_POINT_H
 
-#ifndef INC_1_POINT_H
-#define INC_1_POINT_H
+#endif
 
-#endif //INC_1_POINT_H
 #pragma once
 #include <string>
 
@@ -16,9 +13,13 @@ private:
     double m_x;
     double m_y;
 public:
+    Point();
+    Point(const std::string& name, double x = 0, double y = 0);
+    ~Point();
     void setName(const std::string& name);
     void setXY(double x, double y);
     double getX();
     double getY();
     void show();
 };
+
