@@ -1,6 +1,3 @@
-//
-// Created by Rafal Nowak on 28/05/2022.
-//
 
 #ifndef INHERITANCE_SQUARE_H
 #define INHERITANCE_SQUARE_H
