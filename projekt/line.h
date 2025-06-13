@@ -1,11 +1,12 @@
-#pragma once
+#ifndef LINE_H
+#define LINE_H
 
 int isLineEmpty(void);
 char* Pop(void);
 char* Kolejka(void);
 void Push(char* val);
 void zmStatus(void);
-void zapisz(const char* nazwaPliku);
-void wczytaj(const char* nazwaPliku);
+void zapisz(void);
+void wczytaj(void);
 
-
+#endif

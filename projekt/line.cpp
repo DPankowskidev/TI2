@@ -4,14 +4,19 @@
 #include <stdlib.h>
 #include "line.h"
 
-char** line_table = NULL;
+char** line_table = NULL; //tablica wskaznikow na teksty
 char** status = NULL;
 int line_index = 0;
 int pamiec = 0;
 
 void nPamiec() {
     if (line_index >= pamiec) {
-        pamiec = (pamiec == 0) ? 5 : pamiec * 2;
+        if (pamiec == 0) {
+            pamiec = 5;
+        } 
+        else {
+            pamiec = pamiec * 2;
+        }
         line_table = (char**)realloc(line_table, sizeof(char*) * pamiec);
         status = (char**)realloc(status, sizeof(char*) * pamiec);
     }
@@ -65,12 +70,12 @@ void zmStatus(void) {
             if (strcmp(status[nr], "X") == 0) {
                 free(status[nr]);
                 status[nr] = strdup("✓");
-                printf("Zmieniono status zadania na zrobione\n");
+                printf("Zmieniono status zadania %d na zrobione\n", nr + 1);
             }
             else {
                 free(status[nr]);
                 status[nr] = strdup("X");
-                printf("Zmieniono status zadania na nie zrobione\n");
+                printf("Zmieniono status zadania %d na nie zrobione\n", nr + 1);
             }
         }
         else {
@@ -86,8 +91,9 @@ void Push(char* val) {
     line_index++;
 }
 
-void zapisz(const char* nazwaPliku) {
-    FILE* plik = fopen(nazwaPliku, "w");
+void zapisz(void) {
+    const char* nazwaPliku = "zadania.txt";
+    FILE* plik = fopen(nazwaPliku, "w"); //nadpisywanie
     if (!plik) {
         printf("Nie mozna otworzyc pliku do zapisu.\n");
         return;
@@ -99,26 +105,27 @@ void zapisz(const char* nazwaPliku) {
     printf("Lista zadan zostala zapisana\n");
 }
 
-void wczytaj(const char* nazwaPliku) {
+void wczytaj(void) {
+    const char* nazwaPliku = "zadania.txt";
     FILE* plik = fopen(nazwaPliku, "r");
     if (!plik) {
         printf("Nie mozna otworzyc pliku do odczytu.\n");
         return;
     }
-    char linia[128];
-    while (fgets(linia, sizeof(linia), plik)) {
+    char linia[110]; 
+    while (fgets(linia, sizeof(linia), plik)) { //dodaje \0 na koncu
         char* sep = strstr(linia, "    ");
         if (!sep) continue;
         *sep = '\0'; //konczy zadanie
         char* tresc = linia;
         char* statusZPliku = sep + 4;//adres statusu
-        statusZPliku[strcspn(statusZPliku, "\r\n")] = '\0';//usuwa znak nowej lini
+        statusZPliku[strcspn(statusZPliku, "\r\n")] = '\0';//usuwa znak nowej lini i konczy slowo
         nPamiec();
         line_table[line_index] = strdup(tresc);
         status[line_index] = strdup(statusZPliku);
         line_index++;
     }
     fclose(plik);
-    printf("Wczytano zadania z pliku \"%s\".\n", nazwaPliku);
+    printf("Wczytano zadania.\n");
 }
 

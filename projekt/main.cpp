@@ -35,7 +35,7 @@ int main() {
             case 2:
                 printf("Podaj tresc zadania: ");
                 fgets(temp, sizeof(temp), stdin);
-                temp[strcspn(temp, "\n")] = '\0';
+                temp[strcspn(temp, "\n")] = '\0'; //usuwa znak nowej lini
                 Push(temp);
                 break;
             case 3:
@@ -54,10 +54,10 @@ int main() {
                 zmStatus();
                 break;
             case 5:
-                zapisz("zadania.txt");
+                zapisz();
                 break;
             case 6:
-                wczytaj("zadania.txt");
+                wczytaj();
                 break;
             case 0:
                 return 0;
