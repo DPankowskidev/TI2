@@ -41,6 +41,11 @@ char* Pop(void) {
                 status[i] = status[i + 1];
             }
             line_index--;
+            if (pamiec > 5 && line_index <= pamiec / 4) {
+                pamiec = pamiec / 2;
+                line_table = (char**)realloc(line_table, sizeof(char*) * pamiec);
+                status = (char**)realloc(status, sizeof(char*) * pamiec);
+            }
             return usunZadanie;
         }
         else {
