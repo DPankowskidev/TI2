@@ -1,6 +1,3 @@
-//
-// Created by Rafal Nowak on 28/05/2022.
-//
 
 #ifndef INHERITANCE_RECTANGLE_H
 #define INHERITANCE_RECTANGLE_H

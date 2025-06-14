@@ -19,4 +19,4 @@ public:
     virtual void Info() const;
 };
 
-#endif //INHERITANCE_TRIANGLE_H
+#endif 

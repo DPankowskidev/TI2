@@ -1,5 +1,4 @@
 
-
 #ifndef INHERITANCE_CIRCLE_H
 #define INHERITANCE_CIRCLE_H
 

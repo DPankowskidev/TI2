@@ -21,4 +21,4 @@ public:
 };
 
 
-#endif //INHERITANCE_SQUARE_H
+#endif 

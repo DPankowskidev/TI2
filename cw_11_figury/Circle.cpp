@@ -5,8 +5,6 @@
 Circle::Circle(string name, float r) : Figure(name)
 {
     m_r = r;
-    //m_area = m_a * m_a;
-    //m_perimeter = 4 * m_a;
 }
 
 float Circle::Area() const

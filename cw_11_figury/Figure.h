@@ -1,6 +1,3 @@
-//
-// Created by Rafal Nowak on 28/05/2022.
-//
 
 #ifndef INHERITANCE_FIGURE_H
 #define INHERITANCE_FIGURE_H
@@ -29,4 +26,4 @@ public:
 
 
 
-#endif //INHERITANCE_FIGURE_H
+#endif 
